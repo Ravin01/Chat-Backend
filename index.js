@@ -95,22 +95,22 @@ global.onlineUsers = new Map();
 io.on("connection", (socket) => {
   global.chatSocket = socket;
   socket.on("add-user", (userId) => {
-    // console.log('added', userId)
+    console.log('added', userId)
     const a = (userId)
-    // console.log(a)
+    console.log(a)
     onlineUsers.set(a.email, socket.id);
     
   });
 
   socket.on("send-msg", (data) => {
-    // console.log('sending')
+    console.log('sending')
     const a = (data)
-    // console.log(a)
+    console.log(a)
     const sendUserSocket = onlineUsers.get(a.to);
-    // console.log(sendUserSocket)
+    console.log(sendUserSocket)
     if (sendUserSocket) {
       io.to(sendUserSocket).emit("msg-receive", a.msg);
-      // console.log('received')
+      console.log('received')
     }
   });
 });
