@@ -15,7 +15,7 @@ const cloudURL = `mongodb+srv://${db_UserName}:${db_password}@${db_Cluster}/${db
 
 export const dbConnect = async()=>{
     try{
-        const db = await mongoose.connect(local)
+        const db = await mongoose.connect(cloudURL)
         if(db){
             console.log('DB Connected successfully')
         }
